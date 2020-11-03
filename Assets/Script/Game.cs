@@ -11,6 +11,17 @@ public class Game : MonoBehaviour
 
     [SerializeField] float ballDelay = 5;
 
+    #region Event Listening
+    private void OnEnable()
+    {
+        Slot.OnSlotMarked += Slot_OnSlotMarked;
+    }    
+    private void OnDisable()
+    {
+        Slot.OnSlotMarked -= Slot_OnSlotMarked;
+    }
+    #endregion
+
     private void Start()
     {
         OnGameStart?.Invoke();
@@ -26,5 +37,18 @@ public class Game : MonoBehaviour
             OnBallCalled?.Invoke(Random.Range(1, 76));
             yield return wait;
         }
+    }
+
+    private void Slot_OnSlotMarked(Slot slot)
+    {
+        CheckBingo();
+    }
+
+    private void CheckBingo()
+    {
+        // CheckCollumns()
+        // CheckRows()
+        // CheckDiagonals()
+        // CheckCorners()
     }
 }

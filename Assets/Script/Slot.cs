@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class Slot : MonoBehaviour, IPointerDownHandler
 {
+    public static event Action<Slot> OnSlotMarked;
+
     [SerializeField] Text label;
     [SerializeField] GameObject marker;
 
@@ -24,6 +26,9 @@ public class Slot : MonoBehaviour, IPointerDownHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         if (BallHistory.HasNumber(Number))
+        {
             marker.SetActive(true);
+            OnSlotMarked?.Invoke(this);
+        }
     }
 }
