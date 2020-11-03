@@ -1,9 +1,12 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Startup : MonoBehaviour
 {
-	// Use this for initialization
+    public static event Action OnGameStart;
+
     protected void Awake ()
 	{
+        OnGameStart?.Invoke();
     }
 }
