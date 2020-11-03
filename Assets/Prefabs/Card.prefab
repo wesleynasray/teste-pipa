@@ -160,6 +160,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a714c36b3956240448eec617a686ccb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotPrefab: {fileID: 6030261697580973476, guid: 651560de48c878247a305322abbf7816,
+  slotPrefab: {fileID: 5298811427163348873, guid: 651560de48c878247a305322abbf7816,
     type: 3}
-  padding: {x: 0, y: 0}
+  padding: {x: 100, y: 100}

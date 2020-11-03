@@ -4,21 +4,23 @@ using UnityEngine;
 
 public class Card : MonoBehaviour
 {
-    [SerializeField] GameObject slotPrefab;
+    [SerializeField] Slot slotPrefab;
     [SerializeField] Vector2 padding;
 
     private void Awake()
     {
-        for (int col = -2; col <= 2; col++)
+        for (int col = 0; col < 5; col++)
         {
-            for (int row = -2; row <= 2; row++)
+            for (int row = 0; row < 5; row++)
             {
                 var slot = Instantiate(slotPrefab, transform);
-                
+
                 slot.transform.localPosition = new Vector2 {
-                    x = col * padding.x,
-                    y = row * padding.y
+                    x = (col - 2) * padding.x,
+                    y = (row - 2) * padding.y
                 };
+
+                slot.Number = Random.Range(1, 16) + (col * 15);
             }
         }
     }
