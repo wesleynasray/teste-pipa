@@ -21,6 +21,9 @@ public class Card : MonoBehaviour
                 };
 
                 slot.Number = Random.Range(1, 16) + (col * 15);
+
+                if (col == 2 && row == 2)
+                    slot.IsMarked = true;
             }
         }
     }

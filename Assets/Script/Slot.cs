@@ -21,6 +21,7 @@ public class Slot : MonoBehaviour, IPointerDownHandler
     public bool IsMarked
     {
         get => marker.activeInHierarchy;
+        set => marker.gameObject.SetActive(value);
     }
 
     public void OnPointerDown(PointerEventData eventData)
