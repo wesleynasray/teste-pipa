@@ -11,8 +11,8 @@ public class Game : MonoBehaviour
 
     [SerializeField] float ballDelay = 5;
 
-    protected void Awake ()
-	{
+    private void Start()
+    {
         OnGameStart?.Invoke();
         StartCoroutine(CallBalls());
     }
@@ -23,8 +23,8 @@ public class Game : MonoBehaviour
 
         while (enabled)
         {
-            yield return wait;
             OnBallCalled?.Invoke(Random.Range(1, 76));
+            yield return wait;
         }
     }
 }

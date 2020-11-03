@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class BallHistory : MonoBehaviour
 {
+    #region Static Elements
+    private static BallHistory m_Instance;
+    private static BallHistory Instance => m_Instance == null ? m_Instance = FindObjectOfType<BallHistory>() : m_Instance;
+    
+    public static bool HasNumber(int number) => Instance.calledNumbers.Contains(number);
+    #endregion
+
     [SerializeField] Ball ballPrefab;
     [SerializeField] int ballCount = 5;
     [SerializeField] float padding = 100;
 
     Ball[] balls = { };
-    List<int> calledNumbers = new List<int>();
+    List<int> calledNumbers = new List<int>();    
 
     private void Awake()
     {
@@ -47,5 +54,5 @@ public class BallHistory : MonoBehaviour
             balls[i].gameObject.SetActive(true);
             balls[i].SetBall(calledNumbers[calledNumbers.Count - 1 - i]);
         }
-    }
+    }    
 }
